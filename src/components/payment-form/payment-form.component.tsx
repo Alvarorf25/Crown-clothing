@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 
@@ -18,8 +18,8 @@ const PaymentForm = () => {
 
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-    const paymentHandler = async (e) => {
-        e.preventDefault();
+    const paymentHandler = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
         if (!stripe || !elements) {
             return;
@@ -35,11 +35,15 @@ const PaymentForm = () => {
             body: JSON.stringify({ amount: amount * 100 })
         }).then(res => res.json());
 
-        const { paymentIntent: { client_secret } } = response;        
+        const { paymentIntent: { client_secret } } = response; 
+        
+        const cardDetails = elements.getElement(CardElement);
+
+        if (cardDetails === null) return
 
         const paymentResult = await stripe.confirmCardPayment(client_secret, {
             payment_method: {
-                card: elements.getElement(CardElement),
+                card: cardDetails,
                 billing_details: {
                     name: currentUser ? currentUser.displayName : 'Guest'
                 }
@@ -63,7 +67,7 @@ const PaymentForm = () => {
             <FormContainer onSubmit={paymentHandler}>
                 <h2>Credit Card Payment: </h2>
                 <CardElement />
-                <PaymentButton isLoading={isProcessingPayment} buttonStyle={BUTTON_TYPE_CLASSES.inverted}> Pay now </PaymentButton>
+                <PaymentButton isLoading={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}> Pay now </PaymentButton>
             </FormContainer>
         </PaymentFormContainer>
     );
