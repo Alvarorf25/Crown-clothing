@@ -61,7 +61,7 @@ export const DirectoryItemContainer = styled.div`
     & ${Body} {
       opacity: 0.9;
     }
-  }
+  }  
 
   &:first-child {
     margin-right: 7.5px;
