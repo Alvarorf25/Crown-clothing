@@ -13,6 +13,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.26",
+    "build": "^0.1.4",
     "dotenv": "^16.0.1",
     "firebase": "^9.6.9",
     "react": "^17.0.2",
@@ -27,11 +28,24 @@
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.5",
     "sass": "^1.50.0",
+    "serve": "^14.1.2",
     "stripe": "^9.10.0",
     "styled-components": "^5.3.5",
     "typed-redux-saga": "^1.5.0",
     "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "workbox-background-sync": "^6.5.4",
+    "workbox-broadcast-update": "^6.5.4",
+    "workbox-cacheable-response": "^6.5.4",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-google-analytics": "^6.5.4",
+    "workbox-navigation-preload": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-range-requests": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4",
+    "workbox-streams": "^6.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -59,5 +73,6 @@
   },
   "devDependencies": {
     "babel-plugin-macros": "^3.1.0"
-  }
+  },
+  "packageManager": "yarn@1.22.4"
 }

@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <GlobalStyle />        
+      <GlobalStyle />
       <Routes>
         <Route path='/' element={<Navigation />}>
           <Route index element={<Home />} />

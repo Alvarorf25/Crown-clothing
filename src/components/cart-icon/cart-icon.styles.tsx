@@ -21,5 +21,5 @@ export const ItemCount = styled.span`
   position: absolute;
   font-size: 10px;
   font-weight: bold;
-  bottom: 12px;
+  bottom: 13px;
 `;
